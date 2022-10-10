@@ -9,6 +9,11 @@ export const Appointment = ({ customer }) => <div>{customer.firstName}</div>;
 
 export const AppointmentsDayView = ({ appointments }) => (
   <div id="appointmentsDayView">
+    {appointments.length === 0 ? (
+      <p>There are no appointments scheduled for today.</p>
+    ) : (
+      <Appointment {...appointments[0]} />
+    )}
     <ol>
       {appointments.map((appointment) => (
         <li key={appointment.startsAt}>
